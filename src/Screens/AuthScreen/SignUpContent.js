@@ -4,35 +4,48 @@ import CustomTextInput from '../../Components/CustomTextInput';
 import CustomButton from '../../Components/CustomButton';
 import {AppImages} from '../../Assets/images';
 import PhoneLoginScreen from './PhoneLoginScreen';
-import auth from '@react-native-firebase/auth';
+import {
+  LoginWithFacebook,
+  LoginWithGoogle,
+  signUpfromEmailandPass,
+} from '../../Services/AuthServices';
+// import auth from '@react-native-firebase/auth';
 
 const SignUpContent = ({navigation}) => {
   const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mobile, setMobile] = useState('');
   console.log(confirmPassword, mobile);
-
-  const signUpfromEmailandPass = (useremail, userpassword) => {
-    auth()
-      .createUserWithEmailAndPassword(useremail, userpassword)
-      .then(() => {
-        console.log('User account created & signed in!');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
-
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
-        console.error(error);
-      });
+  const payload = {
+    firstName: firstName,
+    lastName: lastName,
+    mobile: mobile,
+    email: email,
   };
+
+  console.log(payload, 'popppppuiuiiuuiui');
 
   return (
     <View style={styles.contentView}>
+      <Text>First Name</Text>
+      <CustomTextInput
+        placeholder="Enter your FirstName"
+        value={'username'}
+        style={styles.textInput}
+        onChangeText={text => setFirstName(text)}
+      />
+
+      <Text>Last Name</Text>
+      <CustomTextInput
+        placeholder="Enter your LastName"
+        value={'username'}
+        style={styles.textInput}
+        onChangeText={text => setLastName(text)}
+      />
+
       <Text>Email</Text>
       <CustomTextInput
         placeholder="Enter your email"
@@ -69,20 +82,20 @@ const SignUpContent = ({navigation}) => {
         <CustomButton
           title="Sign Up"
           onPress={() => {
-            signUpfromEmailandPass(email, password);
+            signUpfromEmailandPass(email, password, payload);
           }}
           style={styles.signUpBtn}
         />
       </View>
       <Text style={styles.orView}>OR</Text>
       <View style={styles.socialView}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => LoginWithGoogle()}>
           <Image source={AppImages.googleIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate(PhoneLoginScreen)}>
           <Image source={AppImages.mobileIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => LoginWithFacebook()}>
           <Image source={AppImages.facebookIcon} style={styles.iconHeight} />
         </TouchableOpacity>
       </View>

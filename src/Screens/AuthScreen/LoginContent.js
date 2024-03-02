@@ -4,10 +4,10 @@ import CustomTextInput from '../../Components/CustomTextInput';
 import CustomButton from '../../Components/CustomButton';
 import {AppImages} from '../../Assets/images';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import auth from '@react-native-firebase/auth';
-import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
+import {LoginWithFacebook, LoginWithGoogle} from '../../Services/AuthServices';
+import PhoneLoginScreen from './PhoneLoginScreen';
 
-const LoginContent = () => {
+const LoginContent = ({navigation}) => {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -19,48 +19,6 @@ const LoginContent = () => {
         '576432052291-mk8a11vgl6fr5lkhgqqlgbo2bliha4ad.apps.googleusercontent.com',
     });
   });
-
-  const LoginWithGoogle = async () => {
-    // Check if your device supports Google Play
-    await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
-    // Get the users ID token
-    const {idToken} = await GoogleSignin.signIn();
-
-    // Create a Google credential with the token
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
-    return auth().signInWithCredential(googleCredential);
-  };
-
-  const LoginWithFacebook = async () => {
-    // Attempt login with permissions
-    const result = await LoginManager.logInWithPermissions([
-      'public_profile',
-      'email',
-    ]);
-
-    if (result.isCancelled) {
-      throw 'User cancelled the login process';
-    }
-
-    // Once signed in, get the users AccessToken
-    const data = await AccessToken.getCurrentAccessToken();
-
-    if (!data) {
-      throw 'Something went wrong obtaining access token';
-    }
-
-    // Create a Firebase credential with the AccessToken
-    const facebookCredential = auth.FacebookAuthProvider.credential(
-      data.accessToken,
-    );
-
-    console.log(facebookCredential, 'facebookCredential');
-
-    // Sign-in the user with the credential
-    return auth().signInWithCredential(facebookCredential);
-  };
 
   return (
     <View style={styles.contentView}>
@@ -91,7 +49,7 @@ const LoginContent = () => {
         <TouchableOpacity onPress={() => LoginWithGoogle()}>
           <Image source={AppImages.googleIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(PhoneLoginScreen)}>
           <Image source={AppImages.mobileIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => LoginWithFacebook()}>

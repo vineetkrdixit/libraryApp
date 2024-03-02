@@ -32,7 +32,7 @@ const Login = ({navigation}) => {
         <ImageBackground source={AppImages.loginBackground}>
           <Image source={AppImages.background} />
           <View style={styles.container}>
-            <View style={styles.container}>
+            <View style={styles.containerView}>
               <View style={styles.toggleView}>
                 <TouchableOpacity
                   onPress={() => setCurrentIndex('1')}
@@ -53,7 +53,7 @@ const Login = ({navigation}) => {
                     // eslint-disable-next-line react-native/no-inline-styles
                     {
                       backgroundColor:
-                        currentIndex === '1' ? '#DAC829' : '#fffcf1',
+                        currentIndex === '2' ? '#DAC829' : '#fffcf1',
                     },
                   ]}>
                   <Text style={styles.textCenter}>Sign Up</Text>
@@ -71,15 +71,16 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: '25%',
+    top: '20%',
     left: '10%',
-    maxHeight: 600,
+    maxHeight: 800,
     width: '80%',
     borderRadius: 20,
     backgroundColor: 'white',
     elevation: 5,
+    paddingBottom: 15,
   },
-  contanerView: {
+  containerView: {
     alignItems: 'center',
   },
   toggleView: {

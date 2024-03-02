@@ -16,7 +16,8 @@ const VerifyOtpScreen = ({route}) => {
   const [code, setCode] = useState('');
   const verifyOtp = async () => {
     try {
-      await confirm.confirm(code);
+      const result = await confirm.confirm(code);
+      console.log(result, 'result of phone verification');
     } catch (error) {
       console.log('Invalid code.');
     }
@@ -28,7 +29,7 @@ const VerifyOtpScreen = ({route}) => {
       <View style={{}}>
         <ImageBackground source={AppImages.loginBackground}>
           <Image source={AppImages.background} />
-          <View style={styles.otpContainer}>
+          {/* <View style={styles.otpContainer}>
             <View style={styles.otpInputstyle}>
               <CustomOTPInput setCode={setCode} />
             </View>
@@ -37,7 +38,7 @@ const VerifyOtpScreen = ({route}) => {
               onPress={verifyOtp}
               style={styles.confirmBtn}
             />
-          </View>
+          </View> */}
         </ImageBackground>
       </View>
     </ScrollView>

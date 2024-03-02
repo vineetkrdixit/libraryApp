@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {
   Text,
   StyleSheet,
@@ -11,73 +11,92 @@ import {AppImages} from '../../Assets/images';
 import PhoneInput from 'react-native-phone-number-input';
 import CustomButton from '../../Components/CustomButton';
 import auth from '@react-native-firebase/auth';
+import CustomTextInput from '../../Components/CustomTextInput';
+import {createUserData} from '../../Services/AuthServices';
 
 const PhoneLoginScreen = ({navigation}) => {
   const [value, setValue] = useState('');
   const [formattedValue, setFormattedValue] = useState('');
-  const [valid, setValid] = useState(false);
+  const [code, setCode] = useState('');
 
   //For phone number Authentication
   const [confirm, setConfirm] = useState(null);
   const phoneInput = useRef(null);
+  const sendOtp = async phoneNumber => {
+    const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+    setConfirm(confirmation);
+  };
 
-  console.log(value, formattedValue, 'ioioioioioio');
-
-  const sendOtp = async () => {
-    const checkValid = await phoneInput.current?.isValidNumber(value);
-    setValid(checkValid ? checkValid : false);
-    console.log(valid, 'valid==');
-    if (valid) {
-      const confirmation = await auth().signInWithPhoneNumber(formattedValue);
-      console.log(confirmation, 'confirmation====');
-      setConfirm(confirmation);
-      setTimeout(() => {
-        if (confirmation) {
-          navigation.navigate('VerifyOtpScreen', {
-            confirm: confirm,
-          });
-        }
-      }, 1000);
+  const verifyOtp = async () => {
+    try {
+      const result = await confirm.confirm(code);
+      const userId = result?.user?.uid;
+      const payload = {
+        phoneNumber: result?.user?.phoneNumber,
+      };
+      createUserData(userId, payload);
+      console.log('mobile no result===', result);
+    } catch (error) {
+      console.log('Invalid code.');
     }
   };
+
   return (
     <ScrollView>
       <View style={{}}>
         <ImageBackground source={AppImages.loginBackground}>
           <Image source={AppImages.background} />
-          <View style={styles.container}>
-            <View style={styles.phoneTextView}>
-              <Text style={styles.phoneText}>
-                Enter your phone number to continue
-              </Text>
-            </View>
+          {!confirm ? (
+            <>
+              <View style={styles.container}>
+                <View style={styles.phoneTextView}>
+                  <Text style={styles.phoneText}>
+                    Enter your phone number to continue
+                  </Text>
+                </View>
 
-            <View style={styles.phoneInputView}>
-              <PhoneInput
-                ref={phoneInput}
-                defaultValue={value}
-                defaultCode="IN"
-                layout="first"
-                onChangeText={text => {
-                  setValue(text);
-                }}
-                containerStyle={styles.containerStyle}
-                textInputStyle={styles.textInputStyle}
-                textContainerStyle={styles.textContainerStyle}
-                onChangeFormattedText={text => {
-                  setFormattedValue(text);
-                }}
-                // withDarkTheme
-                // withShadow
-                autoFocus
-              />
+                <View style={styles.phoneInputView}>
+                  <PhoneInput
+                    ref={phoneInput}
+                    defaultValue={value}
+                    defaultCode="IN"
+                    layout="first"
+                    onChangeText={text => {
+                      setValue(text);
+                    }}
+                    containerStyle={styles.containerStyle}
+                    textInputStyle={styles.textInputStyle}
+                    textContainerStyle={styles.textContainerStyle}
+                    onChangeFormattedText={text => {
+                      setFormattedValue(text);
+                    }}
+                    // withDarkTheme
+                    // withShadow
+                    autoFocus
+                  />
+                </View>
+                <CustomButton
+                  title="Continue"
+                  onPress={() => sendOtp(formattedValue)}
+                  style={styles.continueBtn}
+                />
+              </View>
+            </>
+          ) : (
+            <View style={styles.container}>
+              <View style={styles.otpContainer}>
+                <View style={styles.otpInputstyle}>
+                  <CustomTextInput onChangeText={e => setCode(e)} />
+                  {/* <CustomOTPInput setCode={setCode} /> */}
+                </View>
+                <CustomButton
+                  title="Confirm"
+                  onPress={verifyOtp}
+                  style={styles.confirmBtn}
+                />
+              </View>
             </View>
-            <CustomButton
-              title="Continue"
-              onPress={() => sendOtp()}
-              style={styles.continueBtn}
-            />
-          </View>
+          )}
         </ImageBackground>
       </View>
     </ScrollView>
@@ -123,7 +142,7 @@ const styles = StyleSheet.create({
   },
   container: {
     position: 'absolute',
-    top: '25%',
+    top: '20%',
     left: '8%',
     maxHeight: 600,
     width: '85%',

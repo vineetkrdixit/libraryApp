@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {View, StyleSheet, TextInput} from 'react-native';
 
 const CustomOTPInput = ({setCode}) => {
