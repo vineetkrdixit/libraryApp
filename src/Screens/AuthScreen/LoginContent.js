@@ -1,24 +1,17 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import CustomTextInput from '../../Components/CustomTextInput';
 import CustomButton from '../../Components/CustomButton';
 import {AppImages} from '../../Assets/images';
-import {
-  GoogleSignin,
-  GoogleSigninButton,
-  statusCodes,
-} from '@react-native-google-signin/google-signin';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import auth from '@react-native-firebase/auth';
-import {
-  LoginButton,
-  AccessToken,
-  LoginManager,
-  Profile,
-} from 'react-native-fbsdk-next';
+import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
 
 const LoginContent = () => {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  console.log(userName, password);
 
   useEffect(() => {
     GoogleSignin.configure({
@@ -26,25 +19,6 @@ const LoginContent = () => {
         '576432052291-mk8a11vgl6fr5lkhgqqlgbo2bliha4ad.apps.googleusercontent.com',
     });
   });
-
-  const CreateUser = (email, password = 'password') => {
-    auth()
-      .createUserWithEmailAndPassword(`${email}`, `${password}`)
-      .then(() => {
-        console.log('User account created & signed in!');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.log('That email address is already in use!');
-        }
-
-        if (error.code === 'auth/invalid-email') {
-          console.log('That email address is invalid!');
-        }
-
-        console.error(error);
-      });
-  };
 
   const LoginWithGoogle = async () => {
     // Check if your device supports Google Play
@@ -88,27 +62,13 @@ const LoginContent = () => {
     return auth().signInWithCredential(facebookCredential);
   };
 
-  const signOut = async () => {
-    try {
-      await GoogleSignin.signOut();
-      // setState({user: null}); // Remember to remove the user from your app's state as well
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   return (
-    <View style={{paddingHorizontal: 10, marginTop: 50}}>
+    <View style={styles.contentView}>
       <Text>Username:</Text>
       <CustomTextInput
         placeholder="Enter your username"
         value={'username'}
-        style={{
-          borderTopWidth: 0,
-          borderLeftWidth: 0,
-          borderRightWidth: 0,
-          borderColor: '#dac892',
-        }}
+        style={styles.textInput}
         onChangeText={text => setUsername(text)}
       />
 
@@ -118,69 +78,46 @@ const LoginContent = () => {
         value={'password'}
         onChangeText={text => setPassword(text)}
         secureTextEntry
-        style={{
-          borderTopWidth: 0,
-          borderLeftWidth: 0,
-          borderRightWidth: 0,
-          borderColor: '#dac892',
-        }}
+        style={styles.textInput}
       />
-      <View style={{alignItems: 'flex-end'}}>
-        <Text style={{textDecorationLine: 'underline', color: '#dac829'}}>
-          Forget password
-        </Text>
+      <View style={styles.itemEnd}>
+        <Text style={styles.forgetPassword}>Forget password</Text>
       </View>
-      <View style={{marginTop: 35, alignItems: 'center'}}>
-        <CustomButton
-          title="Log In"
-          onPress={{}}
-          style={{backgroundColor: '#dac829', width: '50%', borderRadius: 20}}
-        />
+      <View style={styles.loginBtnView}>
+        <CustomButton title="Log In" onPress={{}} style={styles.loginBtn} />
       </View>
-      <Text style={{textAlign: 'center', marginVertical: 20}}>OR</Text>
-      <View
-        style={{flexDirection: 'row', width: '100%', justifyContent: 'center'}}>
+      <Text style={styles.orView}>OR</Text>
+      <View style={styles.socialView}>
         <TouchableOpacity onPress={() => LoginWithGoogle()}>
-          <Image
-            source={AppImages.googleIcon}
-            style={{height: 30, width: 30, marginRight: 10}}
-          />
+          <Image source={AppImages.googleIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Image
-            source={AppImages.mobileIcon}
-            style={{height: 30, width: 30, marginRight: 10}}
-          />
+          <Image source={AppImages.mobileIcon} style={styles.mobileIcon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => LoginWithFacebook()}>
-          <Image
-            source={AppImages.facebookIcon}
-            style={{height: 30, width: 30}}
-          />
+          <Image source={AppImages.facebookIcon} style={styles.iconHeight} />
         </TouchableOpacity>
       </View>
-      {/* <LoginButton
-        onLoginFinished={(error, result) => {
-          if (error) {
-            console.log('login has error: ' + result.error);
-          } else if (result.isCancelled) {
-            console.log('login is cancelled.');
-          } else {
-            AccessToken.getCurrentAccessToken().then(data => {
-              console.log(data, 'data2222');
-              console.log(data.accessToken.toString());
-            });
-          }
-        }}
-        onLogoutFinished={() => console.log('logout.')}
-      /> */}
-      <TouchableOpacity onPress={signOut}>
-        <Text>Logout</Text>
-      </TouchableOpacity>
     </View>
   );
 };
 
 export default LoginContent;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  iconHeight: {height: 30, width: 30},
+  mobileIcon: {height: 30, width: 30, marginRight: 10},
+  socialView: {flexDirection: 'row', width: '100%', justifyContent: 'center'},
+  orView: {textAlign: 'center', marginVertical: 20},
+  loginBtn: {backgroundColor: '#dac829', width: '50%', borderRadius: 20},
+  loginBtnView: {marginTop: 35, alignItems: 'center'},
+  forgetPassword: {textDecorationLine: 'underline', color: '#dac829'},
+  itemEnd: {alignItems: 'flex-end'},
+  textInput: {
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderColor: '#dac892',
+  },
+  contentView: {paddingHorizontal: 10, marginTop: 50},
+});
