@@ -7,14 +7,16 @@ const CustomTextInput = ({
   onChangeText,
   secureTextEntry,
   style,
+  onBlur,
 }) => {
   return (
     <TextInput
       style={{...styles.input, ...style}}
       placeholder={placeholder}
-      //   value={value}
+      value={value}
       onChangeText={onChangeText}
       secureTextEntry={secureTextEntry}
+      onBlur={onBlur}
     />
   );
 };

@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -11,8 +11,8 @@ import {AppImages} from '../../Assets/images';
 import PhoneInput from 'react-native-phone-number-input';
 import CustomButton from '../../Components/CustomButton';
 import auth from '@react-native-firebase/auth';
-import CustomTextInput from '../../Components/CustomTextInput';
 import {createUserData} from '../../Services/AuthServices';
+import {OtpInput} from 'react-native-otp-entry';
 
 const PhoneLoginScreen = ({navigation}) => {
   const [value, setValue] = useState('');
@@ -42,7 +42,7 @@ const PhoneLoginScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.fullView}>
       <View style={{}}>
         <ImageBackground source={AppImages.loginBackground}>
           <Image source={AppImages.background} />
@@ -84,17 +84,30 @@ const PhoneLoginScreen = ({navigation}) => {
             </>
           ) : (
             <View style={styles.container}>
-              <View style={styles.otpContainer}>
-                <View style={styles.otpInputstyle}>
-                  <CustomTextInput onChangeText={e => setCode(e)} />
-                  {/* <CustomOTPInput setCode={setCode} /> */}
-                </View>
-                <CustomButton
-                  title="Confirm"
-                  onPress={verifyOtp}
-                  style={styles.confirmBtn}
-                />
+              <View style={styles.otpText}>
+                <Text style={styles.phoneText}>Enter your OTP</Text>
               </View>
+
+              <OtpInput
+                numberOfDigits={6}
+                focusColor="#dac829"
+                focusStickBlinkingDuration={500}
+                onTextChange={text => setCode(text)}
+                onFilled={text => console.log(`OTP is ${text}`)}
+                theme={{
+                  containerStyle: styles.otpContainer,
+                  inputsContainerStyle: styles.inputsContainer,
+                  pinCodeContainerStyle: styles.pinCodeContainer,
+                  pinCodeTextStyle: styles.pinCodeText,
+                  focusStickStyle: styles.focusStick,
+                  focusedPinCodeContainerStyle: styles.activePinCodeContainer,
+                }}
+              />
+              <CustomButton
+                title="Confirm"
+                onPress={verifyOtp}
+                style={styles.confirmBtn}
+              />
             </View>
           )}
         </ImageBackground>
@@ -142,7 +155,7 @@ const styles = StyleSheet.create({
   },
   container: {
     position: 'absolute',
-    top: '20%',
+    top: '5%',
     left: '8%',
     maxHeight: 600,
     width: '85%',
@@ -150,5 +163,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 5,
     paddingBottom: 25,
+  },
+  fullView: {flex: 1},
+  confirmBtn: {
+    backgroundColor: '#dac829',
+    width: '50%',
+    borderRadius: 20,
+    marginTop: 40,
+    alignSelf: 'center',
+  },
+  otpContainer: {
+    top: '5%',
+    left: '2%',
+  },
+  otpText: {
+    paddingVertical: 10,
   },
 });

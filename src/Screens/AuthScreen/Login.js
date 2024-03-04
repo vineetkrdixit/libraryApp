@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Text,
   StyleSheet,
@@ -11,6 +11,8 @@ import {
 import {AppImages} from '../../Assets/images';
 import LoginContent from './LoginContent';
 import SignUpContent from './SignUpContent';
+import Toast from 'react-native-toast-message';
+import Loader from '../../Components/Loader';
 
 const Login = ({navigation}) => {
   const [currentIndex, setCurrentIndex] = useState('1');
@@ -25,45 +27,49 @@ const Login = ({navigation}) => {
         return null;
     }
   };
+  // console.log(currentIndex, 'currentIndex');
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     Toast.show({type: 'tomatoToast', text1: 'hello'});
+  //   }, 2000);
+  // }, []);
 
   return (
-    <ScrollView>
-      <View style={{}}>
-        <ImageBackground source={AppImages.loginBackground}>
-          <Image source={AppImages.background} />
-          <View style={styles.container}>
-            <View style={styles.containerView}>
-              <View style={styles.toggleView}>
-                <TouchableOpacity
-                  onPress={() => setCurrentIndex('1')}
-                  style={[
-                    styles.toggleContet,
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    {
-                      backgroundColor:
-                        currentIndex === '1' ? '#DAC829' : '#fffcf1',
-                    },
-                  ]}>
-                  <Text style={styles.textCenter}>Log In</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => setCurrentIndex('2')}
-                  style={[
-                    styles.toggleContet,
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    {
-                      backgroundColor:
-                        currentIndex === '2' ? '#DAC829' : '#fffcf1',
-                    },
-                  ]}>
-                  <Text style={styles.textCenter}>Sign Up</Text>
-                </TouchableOpacity>
-              </View>
+    <ScrollView contentContainerStyle={styles.fullView}>
+      <ImageBackground source={AppImages.loginBackground}>
+        <Image source={AppImages.background} />
+        <View style={styles.container}>
+          <View style={styles.containerView}>
+            <View style={styles.toggleView}>
+              <TouchableOpacity
+                onPress={() => setCurrentIndex('1')}
+                style={[
+                  styles.toggleContet,
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  {
+                    backgroundColor:
+                      currentIndex === '1' ? '#DAC829' : '#fffcf1',
+                  },
+                ]}>
+                <Text style={styles.textCenter}>Log In</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => setCurrentIndex('2')}
+                style={[
+                  styles.toggleContet,
+                  // eslint-disable-next-line react-native/no-inline-styles
+                  {
+                    backgroundColor:
+                      currentIndex === '2' ? '#DAC829' : '#fffcf1',
+                  },
+                ]}>
+                <Text style={styles.textCenter}>Sign Up</Text>
+              </TouchableOpacity>
             </View>
-            <View>{renderContent()}</View>
           </View>
-        </ImageBackground>
-      </View>
+          <View>{renderContent()}</View>
+        </View>
+      </ImageBackground>
     </ScrollView>
   );
 };
@@ -71,7 +77,7 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     position: 'absolute',
-    top: '20%',
+    top: '5%',
     left: '10%',
     maxHeight: 800,
     width: '80%',
@@ -96,4 +102,5 @@ const styles = StyleSheet.create({
     borderRadius: 25,
   },
   textCenter: {textAlign: 'center'},
+  fullView: {flex: 1},
 });

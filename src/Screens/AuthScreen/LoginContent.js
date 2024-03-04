@@ -6,6 +6,8 @@ import {AppImages} from '../../Assets/images';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {LoginWithFacebook, LoginWithGoogle} from '../../Services/AuthServices';
 import PhoneLoginScreen from './PhoneLoginScreen';
+import {Formik} from 'formik';
+import {loginValidation} from '../../Utils/helper';
 
 const LoginContent = ({navigation}) => {
   const [userName, setUsername] = useState('');
@@ -21,42 +23,79 @@ const LoginContent = ({navigation}) => {
   });
 
   return (
-    <View style={styles.contentView}>
-      <Text>Username:</Text>
-      <CustomTextInput
-        placeholder="Enter your username"
-        value={'username'}
-        style={styles.textInput}
-        onChangeText={text => setUsername(text)}
-      />
+    <Formik
+      initialValues={{email: '', password: ''}}
+      onSubmit={values => console.log(values)}
+      validationSchema={loginValidation}
+      validateOnMount={true}>
+      {({
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        isValid,
+        touched,
+      }) => (
+        <View style={styles.contentView}>
+          <Text>Email:</Text>
+          <CustomTextInput
+            placeholder="Enter your email"
+            // value={'username'}
+            style={styles.textInput}
+            // onChangeText={text => setUsername(text)}
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+          />
+          {errors.email && touched.email && (
+            <Text style={styles.errorMessage}>{errors.email}</Text>
+          )}
 
-      <Text>Password:</Text>
-      <CustomTextInput
-        placeholder="Enter your password"
-        value={'password'}
-        onChangeText={text => setPassword(text)}
-        secureTextEntry
-        style={styles.textInput}
-      />
-      <View style={styles.itemEnd}>
-        <Text style={styles.forgetPassword}>Forget password</Text>
-      </View>
-      <View style={styles.loginBtnView}>
-        <CustomButton title="Log In" onPress={{}} style={styles.loginBtn} />
-      </View>
-      <Text style={styles.orView}>OR</Text>
-      <View style={styles.socialView}>
-        <TouchableOpacity onPress={() => LoginWithGoogle()}>
-          <Image source={AppImages.googleIcon} style={styles.mobileIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate(PhoneLoginScreen)}>
-          <Image source={AppImages.mobileIcon} style={styles.mobileIcon} />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => LoginWithFacebook()}>
-          <Image source={AppImages.facebookIcon} style={styles.iconHeight} />
-        </TouchableOpacity>
-      </View>
-    </View>
+          <Text>Password:</Text>
+          <CustomTextInput
+            placeholder="Enter your password"
+            onChangeText={handleChange('password')}
+            onBlur={handleBlur('password')}
+            value={values.password}
+            // value={'password'}
+            // onChangeText={text => setPassword(text)}
+            secureTextEntry
+            style={styles.textInput}
+          />
+          {errors.password && touched.password && (
+            <Text style={styles.errorMessage}>{errors.password}</Text>
+          )}
+          <View style={styles.itemEnd}>
+            <Text style={styles.forgetPassword}>Forget password</Text>
+          </View>
+          <View style={styles.loginBtnView}>
+            <CustomButton
+              title="Log In"
+              onPress={{}}
+              style={styles.loginBtn}
+              disable={!isValid}
+            />
+          </View>
+          <Text style={styles.orView}>OR</Text>
+          <View style={styles.socialView}>
+            <TouchableOpacity onPress={() => LoginWithGoogle()}>
+              <Image source={AppImages.googleIcon} style={styles.mobileIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => navigation.navigate(PhoneLoginScreen)}>
+              <Image source={AppImages.mobileIcon} style={styles.mobileIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => LoginWithFacebook()}>
+              <Image
+                source={AppImages.facebookIcon}
+                style={styles.iconHeight}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
+    </Formik>
   );
 };
 
@@ -78,4 +117,5 @@ const styles = StyleSheet.create({
     borderColor: '#dac892',
   },
   contentView: {paddingHorizontal: 10, marginTop: 50},
+  errorMessage: {top: -5, color: 'red'},
 });
