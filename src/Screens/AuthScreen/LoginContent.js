@@ -4,12 +4,16 @@ import CustomTextInput from '../../Components/CustomTextInput';
 import CustomButton from '../../Components/CustomButton';
 import {AppImages} from '../../Assets/images';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {LoginWithFacebook, LoginWithGoogle} from '../../Services/AuthServices';
+import {
+  LoginUser,
+  LoginWithFacebook,
+  LoginWithGoogle,
+} from '../../Services/AuthServices';
 import PhoneLoginScreen from './PhoneLoginScreen';
 import {Formik} from 'formik';
 import {loginValidation} from '../../Utils/helper';
 
-const LoginContent = ({navigation}) => {
+const LoginContent = ({navigation, setLoading}) => {
   const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -25,7 +29,23 @@ const LoginContent = ({navigation}) => {
   return (
     <Formik
       initialValues={{email: '', password: ''}}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => {
+        console.log('clicked log in');
+        setLoading(true);
+        LoginUser(values?.email, values?.password)
+          .then(res => {
+            if (res) {
+              setLoading(true);
+            } else {
+              setLoading(false);
+            }
+            console.log(res, 'res in login user');
+          })
+          .catch(err => {
+            console.log(err, 'err in login user');
+            setLoading(false);
+          });
+      }}
       validationSchema={loginValidation}
       validateOnMount={true}>
       {({
@@ -60,8 +80,8 @@ const LoginContent = ({navigation}) => {
             value={values.password}
             // value={'password'}
             // onChangeText={text => setPassword(text)}
-            secureTextEntry
-            style={styles.textInput}
+            // secureTextEntry
+            style={styles.textPasswordInput}
           />
           {errors.password && touched.password && (
             <Text style={styles.errorMessage}>{errors.password}</Text>
@@ -72,7 +92,7 @@ const LoginContent = ({navigation}) => {
           <View style={styles.loginBtnView}>
             <CustomButton
               title="Log In"
-              onPress={{}}
+              onPress={handleSubmit}
               style={styles.loginBtn}
               disable={!isValid}
             />
@@ -111,11 +131,18 @@ const styles = StyleSheet.create({
   forgetPassword: {textDecorationLine: 'underline', color: '#dac829'},
   itemEnd: {alignItems: 'flex-end'},
   textInput: {
+    textTransform: 'lowercase',
     borderTopWidth: 0,
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#dac892',
   },
-  contentView: {paddingHorizontal: 10, marginTop: 50},
+  contentView: {paddingHorizontal: 10, marginTop: 30},
   errorMessage: {top: -5, color: 'red'},
+  textPasswordInput: {
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderColor: '#dac892',
+  },
 });

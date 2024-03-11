@@ -1,3 +1,4 @@
+import {Dimensions} from 'react-native';
 import {number, object, ref, string} from 'yup';
 
 export const loginValidation = object({
@@ -34,3 +35,7 @@ export const signUpValidation = object({
     .required('Phone is required')
     .min(10, ({min}) => 'Invalid length of number'),
 });
+
+export const SCREEN_HEIGHT = Dimensions.get('window').height;
+
+export const SCREEN_WIDTH = Dimensions.get('window').width;

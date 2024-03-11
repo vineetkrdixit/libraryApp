@@ -4,12 +4,12 @@
  *
  * @format
  */
-
 import React, {useEffect} from 'react';
 import AppNavigator from './src/Navigator/AppNavigator';
 import SplashScreen from 'react-native-splash-screen';
 import Toast, {BaseToast, ErrorToast} from 'react-native-toast-message';
 import {Text, View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 const App = () => {
   /*
   1. Create the config
@@ -64,10 +64,10 @@ const App = () => {
     SplashScreen.hide();
   }, []);
   return (
-    <>
+    <NavigationContainer>
       <AppNavigator />
       <Toast config={toastConfig} />
-    </>
+    </NavigationContainer>
   );
 };
 

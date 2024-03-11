@@ -6,6 +6,7 @@ import {
   ScrollView,
   ImageBackground,
   Image,
+  SafeAreaView,
 } from 'react-native';
 import {AppImages} from '../../Assets/images';
 import PhoneInput from 'react-native-phone-number-input';
@@ -42,10 +43,9 @@ const PhoneLoginScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.fullView}>
-      <View style={{}}>
-        <ImageBackground source={AppImages.loginBackground}>
-          <Image source={AppImages.background} />
+    <SafeAreaView style={styles.fullView}>
+      <View style={{flex: 1}}>
+        <ImageBackground source={AppImages.loginBackground} style={{flex: 1}}>
           {!confirm ? (
             <>
               <View style={styles.container}>
@@ -112,7 +112,7 @@ const PhoneLoginScreen = ({navigation}) => {
           )}
         </ImageBackground>
       </View>
-    </ScrollView>
+    </SafeAreaView>
   );
 };
 
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     width: '50%',
     borderRadius: 20,
     alignSelf: 'center',
-    marginTop: 20,
+    marginTop: 10,
   },
   textContainerStyle: {backgroundColor: '#ffffff'},
   textInputStyle: {
@@ -142,29 +142,25 @@ const styles = StyleSheet.create({
   },
   phoneInputView: {
     paddingHorizontal: 10,
-    marginTop: 30,
-    flex: 1,
+    marginTop: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   phoneText: {fontSize: 18, fontWeight: 'bold', textAlign: 'center'},
   phoneTextView: {
-    marginTop: 10,
     width: '70%',
     alignSelf: 'center',
   },
   container: {
-    position: 'absolute',
-    top: '5%',
-    left: '8%',
-    maxHeight: 600,
+    top: '25%',
+    alignSelf: 'center',
     width: '85%',
     borderRadius: 20,
     backgroundColor: 'white',
     elevation: 5,
-    paddingBottom: 25,
+    paddingVertical: 10,
   },
-  fullView: {flex: 1},
+  fullView: {flex: 1, backgroundColor: 'black'},
   confirmBtn: {
     backgroundColor: '#dac829',
     width: '50%',

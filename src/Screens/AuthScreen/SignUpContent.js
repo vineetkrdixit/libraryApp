@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import CustomTextInput from '../../Components/CustomTextInput';
 import CustomButton from '../../Components/CustomButton';
@@ -11,24 +11,19 @@ import {
 } from '../../Services/AuthServices';
 import {Formik} from 'formik';
 import {signUpValidation} from '../../Utils/helper';
+import PhoneInput from 'react-native-phone-number-input';
+
 // import auth from '@react-native-firebase/auth';
 
-const SignUpContent = ({navigation}) => {
+const SignUpContent = ({navigation, setLoading, loading}) => {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [password, setPassword] = useState('');
+  const phoneInput = useRef(null);
   const [confirmPassword, setConfirmPassword] = useState('');
   const [mobile, setMobile] = useState('');
-  console.log(confirmPassword, mobile);
-  const payload = {
-    firstName: firstName,
-    lastName: lastName,
-    mobile: mobile,
-    email: email,
-  };
-
-  console.log(payload, 'popppppuiuiiuuiui');
+  const [formattedValue, setFormattedValue] = useState('');
 
   return (
     <Formik
@@ -40,7 +35,25 @@ const SignUpContent = ({navigation}) => {
         lastName: '',
         mobile: '',
       }}
-      onSubmit={values => console.log(values)}
+      onSubmit={values => {
+        console.log(values, 'value');
+        setLoading(true);
+        const payload = {
+          firstName: values?.firstName,
+          lastName: values?.lastName,
+          mobile: values?.mobile,
+          email: values?.email,
+        };
+        signUpfromEmailandPass(values.email, values.password, payload)
+          .then(res => {
+            console.log(res, 'res in sucess');
+            setLoading(false);
+          })
+          .catch(err => {
+            console.log(err, 'error in creating account');
+            setLoading(false);
+          });
+      }}
       validateOnBlur={true}
       validateOnMount={true}
       validationSchema={signUpValidation}>
@@ -96,34 +109,49 @@ const SignUpContent = ({navigation}) => {
 
           <Text>Password</Text>
           <CustomTextInput
-            style={styles.textInput}
+            style={styles.textPasswordInput}
             placeholder="Enter your password"
             // value={'password'}
             // onChangeText={text => setPassword(text)}
             onChangeText={handleChange('password')}
             onBlur={handleBlur('password')}
             value={values.password}
-            secureTextEntry
+            // secureTextEntry
           />
           {errors.password && touched.password && (
             <Text style={styles.errorMessage}>{errors.password}</Text>
           )}
           <Text>Confirm Password</Text>
           <CustomTextInput
-            style={styles.textInput}
+            style={styles.textPasswordInput}
             placeholder="Enter your confirm password"
             // value={'confirmpassword'}
             // onChangeText={text => setConfirmPassword(text)}
             onChangeText={handleChange('confirmPassword')}
             onBlur={handleBlur('confirmPassword')}
             value={values.confirmPassword}
-            secureTextEntry
+            // secureTextEntry
           />
           {errors.confirmPassword && touched.confirmPassword && (
             <Text style={styles.errorMessage}>{errors.confirmPassword}</Text>
           )}
           <Text>Mobile</Text>
-          <CustomTextInput
+          <PhoneInput
+            ref={phoneInput}
+            defaultValue={values.mobile}
+            defaultCode="IN"
+            layout="first"
+            onChangeText={handleChange('mobile')}
+            containerStyle={styles.containerStyle}
+            textInputStyle={styles.textInputStyle}
+            textContainerStyle={styles.textContainerStyle}
+            onChangeFormattedText={text => {
+              setFormattedValue(text);
+            }}
+            // onChangeText={handleChange('lastName')}
+            onBlur={handleBlur('mobile')}
+          />
+          {/* <CustomTextInput
             style={styles.textInput}
             placeholder="Enter your mobile number"
             // value={'mobile'}
@@ -132,17 +160,15 @@ const SignUpContent = ({navigation}) => {
             onBlur={handleBlur('mobile')}
             value={values.mobile}
             // secureTextEntry
-          />
+          /> */}
           {errors.mobile && touched.mobile && (
             <Text style={styles.errorMessage}>{errors.mobile}</Text>
           )}
           <View style={styles.signUpBtnView}>
             <CustomButton
-              disable={!isValid}
+              // disable={!isValid}
               title="Sign Up"
-              onPress={() => {
-                signUpfromEmailandPass(email, password, payload);
-              }}
+              onPress={handleSubmit}
               style={styles.signUpBtn}
             />
           </View>
@@ -184,7 +210,29 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderRightWidth: 0,
     borderColor: '#dac892',
+    textTransform: 'lowercase',
   },
-  contentView: {paddingHorizontal: 10, marginTop: 50},
+  textPasswordInput: {
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderColor: '#dac892',
+  },
+  contentView: {paddingHorizontal: 10, marginTop: 30},
   errorMessage: {top: -5, color: 'red'},
+  textContainerStyle: {backgroundColor: 'white', left: -10},
+  textInputStyle: {
+    height: 40,
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderColor: '#dac892',
+    borderWidth: 1,
+    backgroundColor: '#ffffff',
+  },
+  containerStyle: {
+    height: 50,
+    borderRadius: 20,
+    left: -10,
+  },
 });

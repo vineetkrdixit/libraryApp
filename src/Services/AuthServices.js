@@ -1,4 +1,4 @@
-import auth from '@react-native-firebase/auth';
+import auth, {firebase} from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {AccessToken, LoginManager, Profile} from 'react-native-fbsdk-next';
 import firestore from '@react-native-firebase/firestore';
@@ -9,7 +9,7 @@ export const signUpfromEmailandPass = async (
   payload,
 ) => {
   console.log(payload, 'pay in upper');
-  await auth()
+  const signedInUserData = await auth()
     .createUserWithEmailAndPassword(useremail, userpassword)
     //   auth()
     //     .currentUser.sendEmailVerification()
@@ -31,6 +31,7 @@ export const signUpfromEmailandPass = async (
       }
       console.error(error);
     });
+  return signedInUserData;
 };
 
 export const LoginWithGoogle = async () => {
@@ -130,5 +131,21 @@ export const createUserData = async (userId, payload) => {
     console.log('data added succesfully');
   } catch (e) {
     console.log(e, 'error in creating user detail');
+  }
+};
+export const Logout = async () => {
+  return await firebase.auth().signOut();
+};
+export const LoginUser = async (email, password) => {
+  try {
+    const loginUserData = await firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password);
+    // Successful login, you can navigate to the next screen or perform any other action
+    // For example, using react-navigation:
+    // navigation.navigate('Home');
+    return loginUserData;
+  } catch (error) {
+    console.error('Error signing in:', error.message);
   }
 };
