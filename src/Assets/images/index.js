@@ -5,4 +5,7 @@ export const AppImages = {
   googleIcon: require('../images/google.png'),
   mobileIcon: require('../images/phone.png'),
   loadingIcon: require('../images/bookAnimation.gif'),
+  introFirstImage: require('../images/intro1.png'),
+  introSecondImage: require('../images/intro2.png'),
+  introThirdImage: require('../images/intro3.jpg'),
 };
