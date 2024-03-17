@@ -11,9 +11,4 @@ export const IntroSlides = [
     image: AppImages.introSecondImage,
     backgroundColor: '#febe29',
   },
-  {
-    key: 'three',
-    image: AppImages.introThirdImage,
-    backgroundColor: '#22bcb5',
-  },
 ];
