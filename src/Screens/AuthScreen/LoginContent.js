@@ -14,11 +14,6 @@ import {Formik} from 'formik';
 import {loginValidation} from '../../Utils/helper';
 
 const LoginContent = ({navigation, setLoading}) => {
-  const [userName, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  console.log(userName, password);
-
   useEffect(() => {
     GoogleSignin.configure({
       webClientId:
@@ -30,16 +25,15 @@ const LoginContent = ({navigation, setLoading}) => {
     <Formik
       initialValues={{email: '', password: ''}}
       onSubmit={values => {
-        console.log('clicked log in');
         setLoading(true);
         LoginUser(values?.email, values?.password)
-          .then(res => {
+          .then(async res => {
             if (res) {
               setLoading(true);
             } else {
               setLoading(false);
             }
-            console.log(res, 'res in login user');
+            setLoading(false);
           })
           .catch(err => {
             console.log(err, 'err in login user');

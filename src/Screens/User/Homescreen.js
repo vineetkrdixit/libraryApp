@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
 import {Logout} from '../../Services/AuthServices';
 import AppIntroSlider from 'react-native-app-intro-slider';
@@ -7,13 +7,20 @@ import {AppImages} from '../../Assets/images';
 import LinearGradient from 'react-native-linear-gradient';
 import CustomButton from '../../Components/CustomButton';
 import * as Animatable from 'react-native-animatable';
+import useLibraryStore from '../../Zustand/ZustandStore';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+
 const AnimationBtn = Animatable.createAnimatableComponent(TouchableOpacity);
 const HomeScreen = () => {
   const [introCompleted, setIntroCompleted] = useState(false);
-  const [loadHomeScreen, setLoadHomeScreen] = useState(false);
-
+  // const [loadHomeScreen, setLoadHomeScreen] = useState(false);
+  const uid = auth().currentUser.uid;
+  const store = useLibraryStore();
+  const [seen_Walkthrough, setSeen_Walkthrough] = useState(
+    store.userInfo?.seen_walkthrough,
+  );
   const renderIntro = ({item, index}) => {
-    console.log(item, index, 'index');
     return (
       <View style={styles.slide}>
         <Image source={item.image} style={styles.image} />
@@ -22,7 +29,18 @@ const HomeScreen = () => {
     );
   };
 
-  return loadHomeScreen ? (
+  const goToHome = async () => {
+    try {
+      await firestore().collection('Users').doc(uid).update({
+        seen_walkthrough: true,
+      });
+      setSeen_Walkthrough(true);
+    } catch (error) {
+      console.error('Error updating seen_Walktrough:', error);
+    }
+  };
+
+  return seen_Walkthrough ? (
     <View style={{flex: 1, backgroundColor: 'black'}}>
       <Text style={{fontSize: 23, color: 'white'}}>Home screen</Text>
     </View>
@@ -57,8 +75,7 @@ const HomeScreen = () => {
                 }
               </Animatable.Text>
               <AnimationBtn
-                title="Log In"
-                onPress={() => setLoadHomeScreen(true)}
+                onPress={goToHome}
                 style={styles.loginBtn}
                 animation={'slideInUp'}>
                 <Text style={styles.getStarted}>Get Started</Text>
@@ -111,7 +128,7 @@ const styles = StyleSheet.create({
   },
   searchText: {color: 'white', fontWeight: '500', fontSize: 18},
   getStarted: {
-    colors: 'white',
+    color: 'white',
     fontWeight: '900',
     fontSize: 18,
   },

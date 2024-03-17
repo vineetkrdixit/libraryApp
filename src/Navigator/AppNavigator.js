@@ -11,6 +11,7 @@ import AdminAddBook from '../Screens/Admin/AdminAddBook';
 import HomeScreen from '../Screens/User/Homescreen';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {runOnJS} from 'react-native-reanimated';
+import useLibraryStore from '../Zustand/ZustandStore';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
@@ -82,22 +83,17 @@ const AppNavigator = () => {
       if (user) {
         console.log('auth state changed line number 67');
         setLoading(true);
-        console.log(user, 'user===-=');
         try {
           const userData = await firestore()
             .collection('Users')
             .doc(user?.uid)
             .get();
-          console.log(userData?.data()?.isAdmin, 'userData2112121212');
+          useLibraryStore.getState().setUserInfo(userData?._data);
           console.log('auth state changed line number 77');
-          // if (userData.exists) {
           setIsAuthenticated(true);
           if (userData?.data()?.isAdmin) {
             setAdmin(true);
           }
-          // } else {
-          // setIsAuthenticated(false);
-          // }
         } catch (error) {
           console.log(error, 'error in authentication ');
           setIsAuthenticated(false);
@@ -115,7 +111,6 @@ const AppNavigator = () => {
     };
   }, []);
 
-  console.log(isAuthenticated, 'is Authenticated', admin);
   if (loading) {
     return <Loader />;
   }

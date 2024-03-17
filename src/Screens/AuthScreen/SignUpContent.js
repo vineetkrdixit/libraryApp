@@ -16,14 +16,8 @@ import PhoneInput from 'react-native-phone-number-input';
 // import auth from '@react-native-firebase/auth';
 
 const SignUpContent = ({navigation, setLoading, loading}) => {
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [password, setPassword] = useState('');
   const phoneInput = useRef(null);
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [formattedValue, setFormattedValue] = useState('');
+  // const [formattedValue, setFormattedValue] = useState('');
 
   return (
     <Formik
@@ -36,7 +30,6 @@ const SignUpContent = ({navigation, setLoading, loading}) => {
         mobile: '',
       }}
       onSubmit={values => {
-        console.log(values, 'value');
         setLoading(true);
         const payload = {
           firstName: values?.firstName,
@@ -46,7 +39,6 @@ const SignUpContent = ({navigation, setLoading, loading}) => {
         };
         signUpfromEmailandPass(values.email, values.password, payload)
           .then(res => {
-            console.log(res, 'res in sucess');
             setLoading(false);
           })
           .catch(err => {
@@ -145,9 +137,9 @@ const SignUpContent = ({navigation, setLoading, loading}) => {
             containerStyle={styles.containerStyle}
             textInputStyle={styles.textInputStyle}
             textContainerStyle={styles.textContainerStyle}
-            onChangeFormattedText={text => {
-              setFormattedValue(text);
-            }}
+            // onChangeFormattedText={text => {
+            //   setFormattedValue(text);
+            // }}
             // onChangeText={handleChange('lastName')}
             onBlur={handleBlur('mobile')}
           />

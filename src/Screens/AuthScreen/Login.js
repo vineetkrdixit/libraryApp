@@ -21,7 +21,6 @@ const Login = ({navigation}) => {
   const [loading, setLoading] = useState(false);
 
   const renderContent = index => {
-    console.log(index, 'index===');
     switch (currentIndex) {
       case '1':
         return (

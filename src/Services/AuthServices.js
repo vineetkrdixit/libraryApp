@@ -8,18 +8,13 @@ export const signUpfromEmailandPass = async (
   userpassword,
   payload,
 ) => {
-  console.log(payload, 'pay in upper');
   const signedInUserData = await auth()
     .createUserWithEmailAndPassword(useremail, userpassword)
-    //   auth()
-    //     .currentUser.sendEmailVerification()
     .then(async res => {
-      console.log(payload, 'payload==-=');
       const userId = res?.user?.uid;
       payload.id = userId;
-      console.log('User account created & signed in!');
+      payload.seen_walkthrough = false;
       createUserData(userId, payload);
-      console.log('====-=-=', payload);
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
@@ -39,7 +34,6 @@ export const LoginWithGoogle = async () => {
   await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
   // Get the users ID token
   const {idToken, user} = await GoogleSignin.signIn();
-  console.log(user, 'user===');
   // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
@@ -54,6 +48,7 @@ export const LoginWithGoogle = async () => {
         email: user.email,
         user_Avtar: user.photo,
         id: userId,
+        seen_walkthrough: false,
       };
       createUserData(userId, payload);
     });
@@ -69,7 +64,6 @@ export const LoginWithFacebook = async () => {
   if (result.isCancelled) {
     throw 'User cancelled the login process';
   }
-  console.log(result, 'resultttt===');
   // Once signed in, get the users AccessToken
   const data = await AccessToken.getCurrentAccessToken();
 
@@ -82,14 +76,11 @@ export const LoginWithFacebook = async () => {
     data.accessToken,
   );
 
-  console.log(facebookCredential, 'facebookCredential');
-  //   console.log(userProfile, 'userProfile==');
   // Sign-in the user with the credential
   await auth()
     .signInWithCredential(facebookCredential)
     .then(async res => {
       Profile.getCurrentProfile().then(async currentProfile => {
-        console.log(currentProfile, 'jkjkjkjkjkjk');
         if (currentProfile) {
           const userId = res?.user?.uid;
           const userEmail = res?.user?.email;
@@ -99,6 +90,7 @@ export const LoginWithFacebook = async () => {
             email: userEmail,
             user_Avtar: currentProfile.imageURL,
             id: userId,
+            seen_walkthrough: false,
           };
           createUserData(userId, payload);
         }
@@ -113,8 +105,6 @@ export const loginWithMobile = async (
   navigation,
 ) => {
   const confirmation = await auth().signInWithPhoneNumber(formattedValue);
-  console.log(confirmation, 'confirmation====');
-  //   setConfirm(confirmation);
   setTimeout(() => {
     if (confirmation) {
       navigation.navigate('VerifyOtpScreen', {
@@ -125,7 +115,6 @@ export const loginWithMobile = async (
 };
 
 export const createUserData = async (userId, payload) => {
-  console.log(payload, 'payload in createdata');
   try {
     await firestore().collection('Users').doc(userId).set(payload);
     console.log('data added succesfully');
