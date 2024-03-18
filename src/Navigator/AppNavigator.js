@@ -21,6 +21,7 @@ const AdminDrawer = () => {
   return (
     <Drawer.Navigator
       // useLegacyImplementation={true}
+      screenOptions={{headerShown: false}}
       initialRouteName="AdminHomes">
       <Drawer.Screen name="AdminHomes" component={AdminHome} />
       <Drawer.Screen name="AdminAddBooks" component={AdminAddBook} />

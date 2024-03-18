@@ -43,6 +43,12 @@ const HomeScreen = () => {
   return seen_Walkthrough ? (
     <View style={{flex: 1, backgroundColor: 'black'}}>
       <Text style={{fontSize: 23, color: 'white'}}>Home screen</Text>
+      <TouchableOpacity
+        onPress={() => {
+          Logout();
+        }}>
+        <Text style={{color: 'white'}}>Logout</Text>
+      </TouchableOpacity>
     </View>
   ) : (
     <View style={{flex: 1, backgroundColor: 'black'}}>

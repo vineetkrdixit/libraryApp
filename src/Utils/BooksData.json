@@ -1,0 +1,1518 @@
+{
+    "books": [
+      {
+        "id": "1",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "genre": "Fiction",
+        "publication_year": 1960,
+        "isbn": "978-0061120084",
+        "description": "A powerful story of racial injustice and moral growth in the Deep South.",
+        "language": "English",
+        "publisher": "J. B. Lippincott & Co.",
+        "page_count": 281,
+        "cover_image_url": "https://example.com/to_kill_a_mockingbird.jpg",
+        "ratings": {
+          "average": 4.5,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A timeless classic!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "Beautifully written."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "2",
+        "title": "1984",
+        "author": "George Orwell",
+        "genre": "Dystopian Fiction",
+        "publication_year": 1949,
+        "isbn": "978-0451524935",
+        "description": "A dystopian novel portraying a totalitarian regime and its effects on society.",
+        "language": "English",
+        "publisher": "Secker & Warburg",
+        "page_count": 328,
+        "cover_image_url": "https://example.com/1984.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 120
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "A thought-provoking read."
+          },
+          {
+            "user_id": "user890",
+            "rating": 3,
+            "comment": "Disturbing, yet captivating."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "3",
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "genre": "Romance",
+        "publication_year": 1813,
+        "isbn": "978-0141439518",
+        "description": "A classic romantic novel set in rural England.",
+        "language": "English",
+        "publisher": "T. Egerton, Whitehall",
+        "page_count": 279,
+        "cover_image_url": "https://example.com/pride_and_prejudice.jpg",
+        "ratings": {
+          "average": 4.7,
+          "count": 200
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "An enchanting tale of love and manners."
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "A delightful read!"
+          }
+        ],
+        "available_copies": 10,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "4",
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "genre": "Classics",
+        "publication_year": 1925,
+        "isbn": "978-0743273565",
+        "description": "A novel depicting the American Dream during the Jazz Age.",
+        "language": "English",
+        "publisher": "Charles Scribner's Sons",
+        "page_count": 180,
+        "cover_image_url": "https://example.com/the_great_gatsby.jpg",
+        "ratings": {
+          "average": 4.3,
+          "count": 180
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Captivating storytelling."
+          },
+          {
+            "user_id": "user890",
+            "rating": 5,
+            "comment": "A timeless classic!"
+          }
+        ],
+        "available_copies": 5,
+        "total_copies": 7,
+        "borrowed_by": []
+      },
+      {
+        "id": "5",
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling",
+        "genre": "Fantasy",
+        "publication_year": 1997,
+        "isbn": "978-0590353427",
+        "description": "The first book in the Harry Potter series, introducing readers to the magical world of Hogwarts.",
+        "language": "English",
+        "publisher": "Bloomsbury Publishing",
+        "page_count": 309,
+        "cover_image_url": "https://example.com/harry_potter_and_the_sorcerers_stone.jpg",
+        "ratings": {
+          "average": 4.8,
+          "count": 250
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A magical adventure!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "Great for all ages."
+          }
+        ],
+        "available_copies": 12,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "6",
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "genre": "Coming-of-Age Fiction",
+        "publication_year": 1951,
+        "isbn": "978-0316769488",
+        "description": "A story of teenage angst and alienation in post-war America.",
+        "language": "English",
+        "publisher": "Little, Brown and Company",
+        "page_count": 277,
+        "cover_image_url": "https://example.com/the_catcher_in_the_rye.jpg",
+        "ratings": {
+          "average": 4.0,
+          "count": 100
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "A classic portrayal of youth."
+          },
+          {
+            "user_id": "user890",
+            "rating": 3,
+            "comment": "Interesting perspective on adolescence."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "7",
+        "title": "Moby-Dick",
+        "author": "Herman Melville",
+        "genre": "Adventure",
+        "publication_year": 1851,
+        "isbn": "978-0679783275",
+        "description": "An epic tale of obsession and revenge on the high seas.",
+        "language": "English",
+        "publisher": "Richard Bentley (UK); Harper & Brothers (US)",
+        "page_count": 635,
+        "cover_image_url": "https://example.com/moby_dick.jpg",
+        "ratings": {
+          "average": 4.1,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A masterpiece of American literature!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "An adventurous journey."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "8",
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "publication_year": 1937,
+        "isbn": "978-0345339683",
+        "description": "A captivating adventure about a hobbit embarking on a quest to reclaim treasure guarded by a dragon.",
+        "language": "English",
+        "publisher": "Allen & Unwin",
+        "page_count": 310,
+        "cover_image_url": "https://example.com/the_hobbit.jpg",
+        "ratings": {
+          "average": 4.7,
+          "count": 200
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 5,
+            "comment": "A delightful journey!"
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "An enchanting read."
+          }
+        ],
+        "available_copies": 10,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "9",
+        "title": "The Lord of the Rings",
+        "author": "J.R.R. Tolkien",
+        "genre": "Fantasy",
+        "publication_year": 1954,
+        "isbn": "978-0544003415",
+        "description": "An epic fantasy trilogy chronicling the journey to destroy the One Ring.",
+        "language": "English",
+        "publisher": "Allen & Unwin",
+        "page_count": 1178,
+        "cover_image_url": "https://example.com/the_lord_of_the_rings.jpg",
+        "ratings": {
+          "average": 4.9,
+          "count": 300
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A timeless masterpiece!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 5,
+            "comment": "Absolutely captivating!"
+          }
+        ],
+        "available_copies": 15,
+        "total_copies": 20,
+        "borrowed_by": []
+      },
+      {
+        "id": "10",
+        "title": "Frankenstein",
+        "author": "Mary Shelley",
+        "genre": "Gothic Fiction",
+        "publication_year": 1818,
+        "isbn": "978-0486282114",
+        "description": "A groundbreaking work of science fiction exploring themes of creation and humanity.",
+        "language": "English",
+        "publisher": "Lackington, Hughes, Harding, Mavor, & Jones",
+        "page_count": 280,
+        "cover_image_url": "https://example.com/frankenstein.jpg",
+        "ratings": {
+          "average": 4.4,
+          "count": 160
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "A thought-provoking read."
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "A classic tale of horror."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "11",
+        "title": "The Adventures of Sherlock Holmes",
+        "author": "Arthur Conan Doyle",
+        "genre": "Mystery",
+        "publication_year": 1892,
+        "isbn": "978-1505255602",
+        "description": "A collection of twelve short stories featuring the famous detective Sherlock Holmes.",
+        "language": "English",
+        "publisher": "George Newnes Ltd",
+        "page_count": 307,
+        "cover_image_url": "https://example.com/the_adventures_of_sherlock_holmes.jpg",
+        "ratings": {
+          "average": 4.6,
+          "count": 180
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "Brilliantly written!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "A must-read for mystery lovers."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "12",
+        "title": "Dracula",
+        "author": "Bram Stoker",
+        "genre": "Gothic Horror",
+        "publication_year": 1897,
+        "isbn": "978-0486411095",
+        "description": "The iconic tale of Count Dracula's attempt to move from Transylvania to England so he may find new blood and spread the undead curse.",
+        "language": "English",
+        "publisher": "Archibald Constable and Company",
+        "page_count": 418,
+        "cover_image_url": "https://example.com/dracula.jpg",
+        "ratings": {
+          "average": 4.3,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "A classic horror story."
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "Kept me on the edge of my seat!"
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "13",
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "genre": "Historical Fiction",
+        "publication_year": 1869,
+        "isbn": "978-1853260629",
+        "description": "An epic novel about Russian society during the Napoleonic Wars.",
+        "language": "Russian",
+        "publisher": "The Russian Messenger",
+        "page_count": 1225,
+        "cover_image_url": "https://example.com/war_and_peace.jpg",
+        "ratings": {
+          "average": 4.7,
+          "count": 220
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A monumental work of literature!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 5,
+            "comment": "Absolutely brilliant!"
+          }
+        ],
+        "available_copies": 12,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "14",
+        "title": "The Odyssey",
+        "author": "Homer",
+        "genre": "Epic Poetry",
+        "publication_year": -800,
+        "isbn": "978-0143039952",
+        "description": "An ancient Greek epic poem attributed to Homer.",
+        "language": "Ancient Greek",
+        "publisher": "Various",
+        "page_count": 383,
+        "cover_image_url": "https://example.com/the_odyssey.jpg",
+        "ratings": {
+          "average": 4.6,
+          "count": 180
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 5,
+            "comment": "A timeless classic!"
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "An epic journey."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "15",
+        "title": "The Picture of Dorian Gray",
+        "author": "Oscar Wilde",
+        "genre": "Gothic Fiction",
+        "publication_year": 1890,
+        "isbn": "978-0141442464",
+        "description": "A philosophical novel about vanity and the nature of beauty.",
+        "language": "English",
+        "publisher": "Ward, Lock and Company",
+        "page_count": 254,
+        "cover_image_url": "https://example.com/the_picture_of_dorian_gray.jpg",
+        "ratings": {
+          "average": 4.4,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 4,
+            "comment": "A thought-provoking read."
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "Captivating!"
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "16",
+        "title": "Jane Eyre",
+        "author": "Charlotte Brontë",
+        "genre": "Gothic Fiction",
+        "publication_year": 1847,
+        "isbn": "978-0141441146",
+        "description": "A coming-of-age story following the experiences of its eponymous heroine.",
+        "language": "English",
+        "publisher": "Smith, Elder & Co.",
+        "page_count": 536,
+        "cover_image_url": "https://example.com/jane_eyre.jpg",
+        "ratings": {
+          "average": 4.5,
+          "count": 180
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 5,
+            "comment": "A timeless classic!"
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "A gripping tale."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "17",
+        "title": "Don Quixote",
+        "author": "Miguel de Cervantes",
+        "genre": "Novel",
+        "publication_year": 1605,
+        "isbn": "978-0060934347",
+        "description": "A classic of Western literature, it follows the adventures of Alonso Quixano who reads so many chivalric romances that he loses his sanity and decides to set out to revive chivalry, undo wrongs, and bring justice to the world.",
+        "language": "Spanish",
+        "publisher": "Francisco de Robles",
+        "page_count": 1056,
+        "cover_image_url": "https://example.com/don_quixote.jpg",
+        "ratings": {
+          "average": 4.6,
+          "count": 200
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "An epic adventure!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "Hilarious and thought-provoking."
+          }
+        ],
+        "available_copies": 10,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "18",
+        "title": "The Count of Monte Cristo",
+        "author": "Alexandre Dumas",
+        "genre": "Adventure",
+        "publication_year": 1844,
+        "isbn": "978-0140449266",
+        "description": "A tale of betrayal, revenge, and redemption.",
+        "language": "French",
+        "publisher": "Ponson du Terrail",
+        "page_count": 1276,
+        "cover_image_url": "https://example.com/the_count_of_monte_cristo.jpg",
+        "ratings": {
+          "average": 4.7,
+          "count": 220
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A gripping tale of vengeance!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 5,
+            "comment": "Absolutely enthralling."
+          }
+        ],
+        "available_copies": 12,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "19",
+        "title": "Brave New World",
+        "author": "Aldous Huxley",
+        "genre": "Dystopian Fiction",
+        "publication_year": 1932,
+        "isbn": "978-0060850524",
+        "description": "A dystopian novel exploring a future society where people are engineered and conditioned for a stable social order.",
+        "language": "English",
+        "publisher": "Chatto & Windus",
+        "page_count": 288,
+        "cover_image_url": "https://example.com/brave_new_world.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Thought-provoking."
+          },
+          {
+            "user_id": "user890",
+            "rating": 3,
+            "comment": "A disturbing vision of the future."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "20",
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky",
+        "genre": "Philosophical Fiction",
+        "publication_year": 1866,
+        "isbn": "978-0140449136",
+        "description": "A psychological novel exploring the themes of morality, guilt, and redemption.",
+        "language": "Russian",
+        "publisher": "The Russian Messenger",
+        "page_count": 671,
+        "cover_image_url": "https://example.com/crime_and_punishment.jpg",
+        "ratings": {
+          "average": 4.6,
+          "count": 200
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A masterpiece of literature!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 4,
+            "comment": "Thought-provoking."
+          }
+        ],
+        "available_copies": 10,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "21",
+        "title": "The Brothers Karamazov",
+        "author": "Fyodor Dostoevsky",
+        "genre": "Philosophical Fiction",
+        "publication_year": 1880,
+        "isbn": "978-0374528379",
+        "description": "A philosophical novel delving into questions of God, free will, and morality.",
+        "language": "Russian",
+        "publisher": "The Russian Messenger",
+        "page_count": 796,
+        "cover_image_url": "https://example.com/the_brothers_karamazov.jpg",
+        "ratings": {
+          "average": 4.8,
+          "count": 250
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 5,
+            "comment": "A profound masterpiece!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 5,
+            "comment": "Absolutely brilliant!"
+          }
+        ],
+        "available_copies": 12,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "22",
+        "title": "Les Misérables",
+        "author": "Victor Hugo",
+        "genre": "Historical Fiction",
+        "publication_year": 1862,
+        "isbn": "978-0140444308",
+        "description": "A historical novel set in early 19th-century France, it follows the lives and interactions of several characters, focusing on the struggles of ex-convict Jean Valjean and his experience of redemption.",
+        "language": "French",
+        "publisher": "A. Lacroix, Verboeckhoven & Cie.",
+        "page_count": 1463,
+        "cover_image_url": "https://example.com/les_miserables.jpg",
+        "ratings": {
+          "average": 4.7,
+          "count": 220
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 5,
+            "comment": "A powerful story of redemption."
+          },
+          {
+            "user_id": "user890",
+            "rating": 5,
+            "comment": "A masterpiece of literature!"
+          }
+        ],
+        "available_copies": 12,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "23",
+        "title": "The God of Small Things",
+        "author": "Arundhati Roy",
+        "genre": "Fiction",
+        "publication_year": 1997,
+        "isbn": "978-0812979657",
+        "description": "A poignant story set in Kerala, India, about family, love, and social discrimination.",
+        "language": "English",
+        "publisher": "Random House",
+        "page_count": 333,
+        "cover_image_url": "https://example.com/the-god-of-small-things.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 4,
+            "comment": "Beautifully written!"
+          },
+          {
+            "user_id": "user456",
+            "rating": 5,
+            "comment": "A masterpiece."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 12,
+        "borrowed_by": [
+          {
+            "user_id": "borrower123",
+            "borrowed_date": "2024-03-01",
+            "return_date": "2024-03-15"
+          }
+        ]
+      },
+      {
+        "id": "24",
+        "title": "The White Tiger",
+        "author": "Aravind Adiga",
+        "genre": "Fiction",
+        "publication_year": 2008,
+        "isbn": "978-1416562603",
+        "description": "A darkly humorous novel that explores the class struggle in India.",
+        "language": "English",
+        "publisher": "Free Press",
+        "page_count": 321,
+        "cover_image_url": "https://example.com/the-white-tiger.jpg",
+        "ratings": {
+          "average": 4.1,
+          "count": 120
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "An eye-opening read."
+          },
+          {
+            "user_id": "user012",
+            "rating": 3,
+            "comment": "Interesting perspective."
+          }
+        ],
+        "available_copies": 10,
+        "total_copies": 15,
+        "borrowed_by": []
+      },
+      {
+        "id": "25",
+        "title": "The Guide",
+        "author": "R.K. Narayan",
+        "genre": "Fiction",
+        "publication_year": 1958,
+        "isbn": "978-0143029769",
+        "description": "A novel that explores the life of a tour guide in Malgudi, a fictional town in South India.",
+        "language": "English",
+        "publisher": "Penguin Books",
+        "page_count": 240,
+        "cover_image_url": "https://example.com/the-guide.jpg",
+        "ratings": {
+          "average": 4.5,
+          "count": 90
+        },
+        "reviews": [
+          {
+            "user_id": "user234",
+            "rating": 5,
+            "comment": "Narayan's best work!"
+          },
+          {
+            "user_id": "user567",
+            "rating": 4,
+            "comment": "A classic."
+          }
+        ],
+        "available_copies": 5,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "26",
+        "title": "A Suitable Boy",
+        "author": "Vikram Seth",
+        "genre": "Fiction",
+        "publication_year": 1993,
+        "isbn": "978-0060786526",
+        "description": "A sprawling family saga set in post-independence India, exploring love, politics, and tradition.",
+        "language": "English",
+        "publisher": "HarperCollins",
+        "page_count": 1474,
+        "cover_image_url": "https://example.com/a-suitable-boy.jpg",
+        "ratings": {
+          "average": 4.0,
+          "count": 200
+        },
+        "reviews": [
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "Epic storytelling."
+          },
+          {
+            "user_id": "user345",
+            "rating": 5,
+            "comment": "A masterpiece of Indian literature."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "27",
+        "title": "Midnight's Children",
+        "author": "Salman Rushdie",
+        "genre": "Magical Realism",
+        "publication_year": 1981,
+        "isbn": "978-0099553990",
+        "description": "An epic novel that follows the lives of children born at the stroke of midnight on August 15, 1947, the day of India's independence.",
+        "language": "English",
+        "publisher": "Vintage Books",
+        "page_count": 536,
+        "cover_image_url": "https://example.com/midnights-children.jpg",
+        "ratings": {
+          "average": 4.3,
+          "count": 180
+        },
+        "reviews": [
+          {
+            "user_id": "user567",
+            "rating": 4,
+            "comment": "An imaginative journey."
+          },
+          {
+            "user_id": "user901",
+            "rating": 5,
+            "comment": "Rushdie's finest work."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "28",
+        "title": "Interpreter of Maladies",
+        "author": "Jhumpa Lahiri",
+        "genre": "Short Stories",
+        "publication_year": 1999,
+        "isbn": "978-0395927205",
+        "description": "A collection of short stories that explores the lives of Indian immigrants in the United States.",
+        "language": "English",
+        "publisher": "Mariner Books",
+        "page_count": 198,
+        "cover_image_url": "https://example.com/interpreter-of-maladies.jpg",
+        "ratings": {
+          "average": 4.6,
+          "count": 220
+        },
+        "reviews": [
+          {
+            "user_id": "user678",
+            "rating": 5,
+            "comment": "Lahiri's writing is exquisite."
+          },
+          {
+            "user_id": "user234",
+            "rating": 4,
+            "comment": "Beautifully crafted stories."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "29",
+        "title": "The Palace of Illusions",
+        "author": "Chitra Banerjee Divakaruni",
+        "genre": "Historical Fiction",
+        "publication_year": 2008,
+        "isbn": "978-0330458530",
+        "description": "A retelling of the Indian epic Mahabharata from the perspective of Draupadi.",
+        "language": "English",
+        "publisher": "Pan Macmillan",
+        "page_count": 360,
+        "cover_image_url": "https://example.com/the-palace-of-illusions.jpg",
+        "ratings": {
+          "average": 4.4,
+          "count": 130
+        },
+        "reviews": [
+          {
+            "user_id": "user345",
+            "rating": 4,
+            "comment": "An engaging read."
+          },
+          {
+            "user_id": "user789",
+            "rating": 5,
+            "comment": "Fascinating retelling."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "30",
+        "title": "The Namesake",
+        "author": "Jhumpa Lahiri",
+        "genre": "Fiction",
+        "publication_year": 2003,
+        "isbn": "978-0618485222",
+        "description": "A novel that follows the life of a Bengali American named Gogol Ganguli, exploring themes of identity and belonging.",
+        "language": "English",
+        "publisher": "Mariner Books",
+        "page_count": 304,
+        "cover_image_url": "https://example.com/the-namesake.jpg",
+        "ratings": {
+          "average": 4.3,
+          "count": 160
+        },
+        "reviews": [
+          {
+            "user_id": "user567",
+            "rating": 4,
+            "comment": "Lahiri's prose is beautiful."
+          },
+          {
+            "user_id": "user901",
+            "rating": 5,
+            "comment": "A moving story."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "31",
+        "title": "A Fine Balance",
+        "author": "Rohinton Mistry",
+        "genre": "Fiction",
+        "publication_year": 1995,
+        "isbn": "978-1400030651",
+        "description": "A novel set in India during the Emergency period, exploring the lives of four characters from different backgrounds.",
+        "language": "English",
+        "publisher": "Vintage Canada",
+        "page_count": 624,
+        "cover_image_url": "https://example.com/a-fine-balance.jpg",
+        "ratings": {
+          "average": 4.5,
+          "count": 190
+        },
+        "reviews": [
+          {
+            "user_id": "user890",
+            "rating": 5,
+            "comment": "A powerful narrative."
+          },
+          {
+            "user_id": "user234",
+            "rating": 4,
+            "comment": "Mistry's masterpiece."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "32",
+        "title": "The Lowland",
+        "author": "Jhumpa Lahiri",
+        "genre": "Fiction",
+        "publication_year": 2013,
+        "isbn": "978-0307265746",
+        "description": "A novel that spans generations, following the lives of two brothers in India and the United States.",
+        "language": "English",
+        "publisher": "Vintage Books",
+        "page_count": 352,
+        "cover_image_url": "https://example.com/the-lowland.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 140
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Lahiri's storytelling is captivating."
+          },
+          {
+            "user_id": "user901",
+            "rating": 5,
+            "comment": "A richly textured narrative."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "33",
+        "title": "The Great Indian Novel",
+        "author": "Shashi Tharoor",
+        "genre": "Satire",
+        "publication_year": 1989,
+        "isbn": "978-0140120495",
+        "description": "A satirical novel that reimagines the Mahabharata within the context of Indian politics.",
+        "language": "English",
+        "publisher": "Penguin Books",
+        "page_count": 400,
+        "cover_image_url": "https://example.com/the-great-indian-novel.jpg",
+        "ratings": {
+          "average": 4.1,
+          "count": 100
+        },
+        "reviews": [
+          {
+            "user_id": "user234",
+            "rating": 4,
+            "comment": "Tharoor's wit shines through."
+          },
+          {
+            "user_id": "user567",
+            "rating": 3,
+            "comment": "Interesting premise."
+          }
+        ],
+        "available_copies": 5,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "34",
+        "title": "The White Mughals",
+        "author": "William Dalrymple",
+        "genre": "History",
+        "publication_year": 2002,
+        "isbn": "978-0142004128",
+        "description": "A non-fiction book that explores the lives of European men and Indian women during the British Raj.",
+        "language": "English",
+        "publisher": "Penguin Books",
+        "page_count": 592,
+        "cover_image_url": "https://example.com/the-white-mughals.jpg",
+        "ratings": {
+          "average": 4.4,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user567",
+            "rating": 5,
+            "comment": "A fascinating glimpse into history."
+          },
+          {
+            "user_id": "user901",
+            "rating": 4,
+            "comment": "Well-researched and engaging."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "35",
+        "title": "The Inheritance of Loss",
+        "author": "Kiran Desai",
+        "genre": "Fiction",
+        "publication_year": 2006,
+        "isbn": "978-0141027289",
+        "description": "A novel set in the foothills of the Himalayas, exploring themes of identity, globalization, and cultural conflict.",
+        "language": "English",
+        "publisher": "Penguin Books",
+        "page_count": 384,
+        "cover_image_url": "https://example.com/the-inheritance-of-loss.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 130
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Desai's prose is exquisite."
+          },
+          {
+            "user_id": "user012",
+            "rating": 4,
+            "comment": "A thought-provoking read."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 9,
+        "borrowed_by": []
+      },
+      {
+        "id": "36",
+        "title": "A River Sutra",
+        "author": "Gita Mehta",
+        "genre": "Literary Fiction",
+        "publication_year": 1993,
+        "isbn": "978-0385420266",
+        "description": "A collection of interconnected stories set along the banks of the Narmada River, each exploring themes of love, faith, and redemption.",
+        "language": "English",
+        "publisher": "Anchor Books",
+        "page_count": 320,
+        "cover_image_url": "https://example.com/a-river-sutra.jpg",
+        "ratings": {
+          "average": 4.1,
+          "count": 110
+        },
+        "reviews": [
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "Beautifully written."
+          },
+          {
+            "user_id": "user234",
+            "rating": 3,
+            "comment": "Mixed feelings about this one."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "37",
+        "title": "Train to Pakistan",
+        "author": "Khushwant Singh",
+        "genre": "Historical Fiction",
+        "publication_year": 1956,
+        "isbn": "978-0802132215",
+        "description": "A novel that depicts the partition of India in 1947 through the lens of a small village on the border.",
+        "language": "English",
+        "publisher": "Grove Press",
+        "page_count": 224,
+        "cover_image_url": "https://example.com/train-to-pakistan.jpg",
+        "ratings": {
+          "average": 4.3,
+          "count": 150
+        },
+        "reviews": [
+          {
+            "user_id": "user901",
+            "rating": 5,
+            "comment": "A haunting portrayal of history."
+          },
+          {
+            "user_id": "user345",
+            "rating": 4,
+            "comment": "Singh's writing is evocative."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "38",
+        "title": "2 States: The Story of My Marriage",
+        "author": "Chetan Bhagat",
+        "genre": "Romance",
+        "publication_year": 2009,
+        "isbn": "978-8129115300",
+        "description": "A romantic novel that follows the journey of a couple from different cultural backgrounds as they navigate the challenges of love and marriage.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 269,
+        "cover_image_url": "https://example.com/2-states.jpg",
+        "ratings": {
+          "average": 4.0,
+          "count": 100
+        },
+        "reviews": [
+          {
+            "user_id": "user123",
+            "rating": 4,
+            "comment": "A heartwarming story."
+          },
+          {
+            "user_id": "user456",
+            "rating": 3,
+            "comment": "Enjoyable read."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "39",
+        "title": "One Night @ the Call Center",
+        "author": "Chetan Bhagat",
+        "genre": "Fiction",
+        "publication_year": 2005,
+        "isbn": "978-0345498326",
+        "description": "A story that unfolds over the course of one night at a call center, exploring the lives of six individuals facing personal and professional challenges.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 320,
+        "cover_image_url": "https://example.com/one-night-at-the-call-center.jpg",
+        "ratings": {
+          "average": 3.8,
+          "count": 80
+        },
+        "reviews": [
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Interesting premise."
+          },
+          {
+            "user_id": "user567",
+            "rating": 3,
+            "comment": "Enjoyed the character development."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "40",
+        "title": "Five Point Someone: What Not to Do at IIT!",
+        "author": "Chetan Bhagat",
+        "genre": "Fiction",
+        "publication_year": 2004,
+        "isbn": "978-8129104595",
+        "description": "A humorous and insightful novel that follows the lives of three friends at an Indian Institute of Technology (IIT) as they navigate the challenges of academic pressure and friendship.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 270,
+        "cover_image_url": "https://example.com/five-point-someone.jpg",
+        "ratings": {
+          "average": 4.2,
+          "count": 90
+        },
+        "reviews": [
+          {
+            "user_id": "user234",
+            "rating": 4,
+            "comment": "Relatable characters."
+          },
+          {
+            "user_id": "user901",
+            "rating": 5,
+            "comment": "Funny and engaging."
+          }
+        ],
+        "available_copies": 5,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "41",
+        "title": "Revolution 2020",
+        "author": "Chetan Bhagat",
+        "genre": "Fiction",
+        "publication_year": 2011,
+        "isbn": "978-8129118806",
+        "description": "A story of love, corruption, and ambition set against the backdrop of India's education system and the pursuit of success.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 296,
+        "cover_image_url": "https://example.com/revolution-2020.jpg",
+        "ratings": {
+          "average": 3.9,
+          "count": 70
+        },
+        "reviews": [
+          {
+            "user_id": "user567",
+            "rating": 4,
+            "comment": "Captivating storyline."
+          },
+          {
+            "user_id": "user890",
+            "rating": 3,
+            "comment": "Interesting commentary on society."
+          }
+        ],
+        "available_copies": 4,
+        "total_copies": 7,
+        "borrowed_by": []
+      },
+      {
+        "id": "42",
+        "title": "Half Girlfriend",
+        "author": "Chetan Bhagat",
+        "genre": "Romance",
+        "publication_year": 2014,
+        "isbn": "978-8129135728",
+        "description": "A love story between a Bihari boy and a high-society girl, exploring themes of love, friendship, and social barriers.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 260,
+        "cover_image_url": "https://example.com/half-girlfriend.jpg",
+        "ratings": {
+          "average": 3.7,
+          "count": 60
+        },
+        "reviews": [
+          {
+            "user_id": "user012",
+            "rating": 3,
+            "comment": "Predictable but enjoyable."
+          },
+          {
+            "user_id": "user789",
+            "rating": 4,
+            "comment": "Engaging storyline."
+          }
+        ],
+        "available_copies": 8,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "43",
+        "title": "The Girl in Room 105",
+        "author": "Chetan Bhagat",
+        "genre": "Thriller",
+        "publication_year": 2018,
+        "isbn": "978-1542040464",
+        "description": "A suspenseful thriller that follows the investigation of a mysterious death and unravels the secrets of a college romance.",
+        "language": "English",
+        "publisher": "Westland",
+        "page_count": 312,
+        "cover_image_url": "https://example.com/the-girl-in-room-105.jpg",
+        "ratings": {
+          "average": 3.5,
+          "count": 50
+        },
+        "reviews": [
+          {
+            "user_id": "user345",
+            "rating": 3,
+            "comment": "Kept me guessing until the end."
+          },
+          {
+            "user_id": "user678",
+            "rating": 4,
+            "comment": "Fast-paced and gripping."
+          }
+        ],
+        "available_copies": 9,
+        "total_copies": 12,
+        "borrowed_by": []
+      },
+      {
+        "id": "44",
+        "title": "One Indian Girl",
+        "author": "Chetan Bhagat",
+        "genre": "Romance",
+        "publication_year": 2016,
+        "isbn": "978-1542040464",
+        "description": "A contemporary romance novel that explores themes of feminism, relationships, and societal expectations through the perspective of a young Indian woman.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 280,
+        "cover_image_url": "https://example.com/one-indian-girl.jpg",
+        "ratings": {
+          "average": 3.6,
+          "count": 70
+        },
+        "reviews": [
+          {
+            "user_id": "user234",
+            "rating": 3,
+            "comment": "Interesting take on feminism."
+          },
+          {
+            "user_id": "user901",
+            "rating": 4,
+            "comment": "Enjoyable read."
+          }
+        ],
+        "available_copies": 6,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "45",
+        "title": "The 3 Mistakes of My Life",
+        "author": "Chetan Bhagat",
+        "genre": "Fiction",
+        "publication_year": 2008,
+        "isbn": "978-8129113726",
+        "description": "A story of friendship, ambition, and redemption set against the backdrop of contemporary India, exploring the dreams and challenges faced by three young men.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 258,
+        "cover_image_url": "https://example.com/the-3-mistakes-of-my-life.jpg",
+        "ratings": {
+          "average": 4.0,
+          "count": 80
+        },
+        "reviews": [
+          {
+            "user_id": "user234",
+            "rating": 4,
+            "comment": "Bhagat's storytelling is engaging."
+          },
+          {
+            "user_id": "user567",
+            "rating": 3,
+            "comment": "Interesting plot twists."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 10,
+        "borrowed_by": []
+      },
+      {
+        "id": "46",
+        "title": "Making India Awesome",
+        "author": "Chetan Bhagat",
+        "genre": "Non-fiction",
+        "publication_year": 2015,
+        "isbn": "978-8129137425",
+        "description": "A collection of essays that discusses various issues affecting India, offering insights and suggestions for making the country a better place.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 240,
+        "cover_image_url": "https://example.com/making-india-awesome.jpg",
+        "ratings": {
+          "average": 3.4,
+          "count": 40
+        },
+        "reviews": [
+          {
+            "user_id": "user567",
+            "rating": 3,
+            "comment": "Thought-provoking essays."
+          },
+          {
+            "user_id": "user890",
+            "rating": 4,
+            "comment": "Interesting perspectives."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 8,
+        "borrowed_by": []
+      },
+      {
+        "id": "47",
+        "title": "What Young India Wants",
+        "author": "Chetan Bhagat",
+        "genre": "Non-fiction",
+        "publication_year": 2012,
+        "isbn": "978-8129135544",
+        "description": "A compilation of essays that addresses the aspirations, concerns, and challenges faced by the youth of India, offering insights and perspectives on various issues.",
+        "language": "English",
+        "publisher": "Rupa & Co.",
+        "page_count": 208,
+        "cover_image_url": "https://example.com/what-young-india-wants.jpg",
+        "ratings": {
+          "average": 3.3,
+          "count": 30
+        },
+        "reviews": [
+          {
+            "user_id": "user901",
+            "rating": 3,
+            "comment": "Interesting read."
+          },
+          {
+            "user_id": "user345",
+            "rating": 3,
+            "comment": "Some thought-provoking essays."
+          }
+        ],
+        "available_copies": 7,
+        "total_copies": 8,
+        "borrowed_by": []
+      }
+    ]
+}
+
+  
+
+  
